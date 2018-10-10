@@ -107,8 +107,14 @@ backup/
 
 # Directories contains the training and testing data
 dataset/
+data/
 examples/
 test/
 
 # Trained models
 *.model
+
+# virtualenvs
+venv/
+my-venv/
+coreml-keras/
