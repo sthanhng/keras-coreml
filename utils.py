@@ -1,12 +1,12 @@
 import numpy as np
 import os
+import cv2
 
 # set the matplotlib backend so figures can be saved in the background
 import matplotlib.pyplot as plt
 import matplotlib
 
 matplotlib.use('Agg')
-
 
 # ------------------------------------------------
 # Parameters
@@ -22,6 +22,13 @@ VALID_EXTS = (
 )
 
 IMAGE_DIMS = (96, 96, 3)
+
+# colors
+COLOR_BLUE = (255, 0, 0)
+COLOR_GREEN = (0, 255, 0)
+COLOR_RED = (0, 0, 255)
+COLOR_YELLOW = (0, 255, 255)
+
 
 # -----------------------------------------------
 # Helper functions
@@ -63,3 +70,30 @@ def plot_loss_acc(model, epochs, save_path):
     plt.ylabel('Loss/Accuracy')
     plt.legend(loc='upper left')
     plt.savefig(save_path)
+
+
+def resize(image, width=None, height=None, inter=cv2.INTER_AREA):
+    # initialize the dimensions of the image to be resized and
+    # grab the image size
+    (h, w) = image.shape[:2]
+
+    # if both the width and height are None, then return the
+    # original image
+    if width is None and height is None:
+        return image
+
+    if width is None:
+        # calculate the ratio of the height and construct the
+        # dimensions
+        r = height / float(h)
+        dim = (int(w * r), height)
+    else:
+        # calculate the ratio of the width and construct the
+        # dimensions
+        r = width / float(w)
+        dim = (width, int(h * r))
+
+    # resize the image
+    resized = cv2.resize(image, dim, interpolation=inter)
+
+    return resized
