@@ -42,7 +42,7 @@ print('[i] Path of the trained model: ', args.model_dir)
 print('[i] Name of the trained model: ', args.model_name)
 print('[i] # training epochs: ', args.num_epochs)
 print('[i] Training batch size: ', args.batch_size)
-print('[i] Learning rater: ', args.lr)
+print('[i] Learning rate: ', args.lr)
 print('[i] Path of the output label binarizer: ', args.label_bin)
 print('[i] Path of the output acc/loss plot: ', args.plot)
 print('########################################################\n')
@@ -55,7 +55,7 @@ if not os.path.exists(args.model_dir):
     print('==> Creating {} directory...'.format(args.model_dir))
     os.makedirs(args.model_dir)
 else:
-    print('==> Directory {} already exists!'.format(args.model_dir))
+    print('==> Skipping create directory {}'.format(args.model_dir))
 
 
 #####################################################################
