@@ -42,10 +42,9 @@ idx = np.argmax(proba)
 label = lb.classes_[idx]
 
 filename = args.sample[args.sample.rfind(os.path.sep) + 1:]
-correct = 'correct' if filename.rfind(label) != -1 else 'incorrect'
 
 # build the label and draw the label on the image
-text = '{}: {:.2f}% ({})'.format(label, proba[idx] * 100, correct)
+text = '{}: {:.2f}%'.format(label, proba[idx] * 100)
 output = resize(output, width=400)
 cv2.putText(output, text, (10, 25), cv2.FONT_HERSHEY_SIMPLEX,
             0.6, COLOR_YELLOW, 1)

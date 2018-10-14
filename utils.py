@@ -2,11 +2,8 @@ import numpy as np
 import os
 import cv2
 
-# set the matplotlib backend so figures can be saved in the background
 import matplotlib.pyplot as plt
-import matplotlib
 
-matplotlib.use('Agg')
 
 # ------------------------------------------------
 # Parameters
