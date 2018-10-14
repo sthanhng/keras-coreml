@@ -69,7 +69,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // load our CoreML Pokedex model
+        // load our CoreML dogcat model
         guard let model = try? VNCoreMLModel(for: dogcat().model) else { return }
         
         // run an inference with CoreML
