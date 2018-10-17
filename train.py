@@ -75,7 +75,7 @@ for imagePath in imagePaths:
     # extract the class label from the image path and update the
     # labels list
     label = imagePath.split(os.path.sep)[-2]
-    labels.append(label)
+    labels.append(label[:-1])
 
 # scale the raw pixel intensities to the range [0, 1]
 data = np.array(data, dtype='float') / 255.0
@@ -120,7 +120,7 @@ history = model.fit_generator(
 print('==> Saving the model...')
 model.save(args.model_dir + args.model_name)
 
-# save the binarized label
+# save the label binarizer
 print('==> Saving label binarizer...')
 f = open(args.label_bin, 'wb')
 f.write(pickle.dumps(lb))
